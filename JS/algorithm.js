@@ -1,0 +1,43 @@
+function getPolesTrees(trees) {
+    trees.sort((element1, element2) => {
+        if (element1.x === element2.x) return element1.y - element2.y;
+        return element1.x - element2.x;
+    });
+    let upper = [], lower = [];
+
+    for (const tree of trees) {
+        while (upper.length >= 2 && cmp(upper[upper.length - 2], upper[upper.length - 1], tree) >= 0) upper.pop();
+        while (lower.length >= 2 && cmp(lower[lower.length - 2], lower[lower.length - 1], tree) <= 0) lower.pop();
+        upper.push(tree);
+        lower.push(tree);
+    }
+
+    upper.sort((a, b) => {
+        return b.x - a.x;
+    });
+
+    let polar = [];
+    polar['lower'] = lower;
+    polar['upper'] = upper;
+
+
+    let lowerHalf = Math.floor(lower.length / 2);
+    let leftLower = lower.slice(0, lowerHalf);
+    let rightLower = lower.slice(lowerHalf)
+
+    let upperHalf = Math.floor(upper.length / 2);
+    let leftUpper = upper.slice(0, upperHalf);
+    let rightUpper = upper.slice(upperHalf);
+
+
+    polar['lower_left'] = leftLower;
+    polar['lower_right'] = rightLower;
+    polar['upper_right'] = leftUpper;
+    polar['upper_left'] = rightUpper;
+    polar['all'] = [...new Set(lower.concat(upper))];
+    return polar;
+};
+
+const cmp = (p1, p2, p3) => {
+    return (p3.y - p2.y) * (p2.x - p1.x) - (p2.y - p1.y) * (p3.x - p2.x);
+};

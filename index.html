@@ -1,36 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <title>Erect The Fence</title>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="d3.js"></script>
-    <title>Document</title>
+    <script src="../JS/d3.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
-<style>
-    .black-stroke{
-        stroke: black;
-        stroke-width: 2;
-    }
-    .rect{
-        stroke: black;
-        stroke-width: 1;
-        fill: green;
-    }
-</style>
-<body>
-    <!-- <h1> bossiiii </h1> -->
-    <!-- <div id="div_1"></div> -->
-    <!-- <svg width="100", height="100">
-        <circle cx="50" cy="50", r="40">
 
-        </circle>
-    </svg> -->
-<!-- 
-    <div class="canva">
-        
-    </div> -->
+<body class="d-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-around align-items-center">
+        <div class="col-sm-2">
+            <form class="form-control" id="data-form">
+                <div class="d-flex mt-3">
+                    <div class="col-4 text-center pt-3">
+                        <div>
+                            <svg class="col-12">
+                                <defs>
+                                    <radialGradient id="appleGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                                        <stop offset="0%" stop-color="darkgreen"></stop>
+                                        <stop offset="100%" stop-color="green"></stop>
+                                    </radialGradient>
+                                </defs>
 
-    <svg class="canvas"></svg>
+                                <rect x="45" y="100" width="10" height="40" fill="brown" />
+                                <circle cx="50" cy="75" r="30" fill="url(#appleGradient)" />
+                                <circle cx="30" cy="65" r="25" fill="url(#appleGradient)" />
+                                <circle cx="70" cy="65" r="25" fill="url(#appleGradient)" />
+                                <circle cx="50" cy="45" r="20" fill="url(#appleGradient)" />
+                                <circle cx="50" cy="45" r="5" fill="red" stroke="darkred" stroke-width="2" />
+                                <circle cx="50" cy="85" r="5" fill="red" stroke="darkred" stroke-width="2" />
+                                <circle cx="15" cy="65" r="5" fill="red" stroke="darkred" stroke-width="2" />
+                                <circle cx="80" cy="65" r="5" fill="red" stroke="darkred" stroke-width="2" />
+                                <circle cx="35" cy="60" r="5" fill="red" stroke="darkred" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <div>
+                            <label>Apple Tree</label>
+                            <input type="radio" name="tree_type" value="apple" checked>
+                        </div>
+                    </div>
+
+                    <div class="col-4 text-center pt-3">
+                        <div>
+                            <svg class="col-12">
+                                <rect x="45" y="100" width="10" height="40" fill="brown" />
+                                class="mb-0 d-none"
+                                <polygon points="50,10 30,40 40,40 20,70 30,70 10,100 90,100 70,70 80,70 60,40 70,40"
+                                    style="fill:green;stroke:black;stroke-width:2" />
+                            </svg>
+                        </div>
+                        <div>
+                            <label>Pine</label>
+                            <input type="radio" name="tree_type" value="pine">
+                        </div>
+                    </div>
+
+                    <div class="col-4 text-center pt-3">
+                        <div>
+                            <svg class="col-12">
+                                <defs>
+                                    <radialGradient id="poplarGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="100%">
+                                        <stop offset="50%" stop-color="darkgreen"></stop>
+                                        <stop offset="100%" stop-color="lightgreen"></stop>
+                                    </radialGradient>
+                                </defs>
+
+                                <rect x="45" y="100" width="10" height="40" fill="brown" />
+
+                                <ellipse rx="18" ry="50" cx="50" cy="60" style="fill:url(#poplarGradient);" />
+                            </svg>
+                        </div>
+                        <div>
+                            <label>Poplar</label>
+                            <input type="radio" name="tree_type" value="poplar">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="d-flex mt-3">
+                    <div class="col-6 text-center pt-3">
+                        <div>
+                            <svg class="col-12" height="30">
+                                <line x1="5" y1="15" x2="142" y2="15" stroke="#C04000" stroke-width="30"
+                                    stroke-dasharray="6" />
+                                <line x1="5" y1="10" x2="142" y2="10" stroke="#C04000" stroke-width="4" />
+
+                                <line x1="5" y1="20" x2="142" y2="20" stroke="#C04000" stroke-width="4" />
+                            </svg>
+                        </div>
+                        <div class="p-3">
+                            <label>Wood</label>
+                            <input type="radio" name="fence_type" value="wood" checked>
+                        </div>
+                    </div>
+
+                    <div class="col-6 text-center pt-3">
+                        <div>
+                            <svg class="col-12" height="30">
+                                <line x1="5" y1="15" x2="142" y2="15" stroke="#71797E" stroke-width="30"
+                                    stroke-dasharray="6" />
+                                <line x1="5" y1="2" x2="142" y2="2" stroke="#71797E" stroke-width="6" />
+                                <line x1="5" y1="28" x2="142" y2="28" stroke="#71797E" stroke-width="6" />
+                            </svg>
+                        </div>
+                        <div class="p-3">
+                            <label>Metal</label>
+                            <input type="radio" name="fence_type" value="metal">
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="form-group mt-3">
+                    <input type="text" class="form-control" id="data-input" placeholder="Enter text" required>
+                </div>
+
+                <div class="pe-3 ps-3" style="color: red; font-size: 14px;">
+                    <p  id="invalid_value_x" class="mb-0 d-none"> Values of coordinates X must be between 0 - 20</p>
+                    <p  id="invalid_value_y" class="mb-0 d-none"> Values of coordinates Y must be between 0 - 10</p>
+                    <p  id="invalid_format" class="mb-0 d-none"> This format is invalid.<br>Valid format is <span style="font-size: 16px;">[ [ x1 , y1 ] , [ x2 , y2 ] ]</span></p>
+                </div>
+
+                <div class="form-group col-12 mt-3">
+                    <select class="form-select" id="select" style="color: gray;">
+                        <option value="" style="color: gray;" selected disabled hidden>Generate one example</option>
+                        <option value="sparse" style="color: black;">Sparse Tree Coverage</option>
+                        <option value="moderate" style="color: black;">Moderate Tree Coverage</option>
+                        <option value="dense" style="color: black;">Dense Tree Coverage</option>
+                    </select>
+                </div>
+
+                <div>
+                    <div class="form-group col-12 p-3 d-flex justify-content-center align-items-center">
+                        <input type="file" id="file" accept=".txt">
+                    </div>
+                </div>
+
+
+                <div class="d-flex justify-content-center align-items-center">
+                    <button type="submit" id="solveButton" class="btn btn-primary btn-block m-3">Solve</button>
+                </div>
+                
+            </form>
+            <div>
+                <p id="perimeter" style="font-size: 18px;" class="text-center p-3">
+                </p>
+            </div>
+        </div>
+
+        <div class="d-flex align-items-center" id="right-side-container">
+
+        </div>
+    </div>
 </body>
-<script src="index.js"></script>
+
+<script src="../JS/axes.js"></script>
+<script src="../JS/index.js"></script>
+<script src="../JS/file_handler.js"></script>
+<script src="../JS/select_handler.js"></script>
+<script src="../JS/algorithm.js"></script>
+<script src="../JS/form_handler.js"></script>
+<script src="../JS/apple_tree.js"></script>
+<script src="../JS/pine_tree.js"></script>
+<script src="../JS/poplar_tree.js"></script>
+<script src="../JS/lines.js"></script>
 </html>
