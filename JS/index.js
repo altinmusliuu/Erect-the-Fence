@@ -59,11 +59,8 @@ function calculateTotalDistance(coordinates) {
         );
         totalDistance += distance;
     }
-
-    if (coordinates.length < 4) {
-        return (totalDistance * 2 / 100).toFixed(2);
-    }
-    return (totalDistance / 100).toFixed(2);
+    totalDistance += Math.sqrt(Math.pow(coordinates[coordinates.length -1].x - coordinates[0].x, 2) + Math.pow(coordinates[coordinates.length -1].y - coordinates[0].y, 2));   
+    return (totalDistance / pixelScale).toFixed(2);
 }
 
 function drawTrunkOfTrees(trees) {

@@ -41,7 +41,7 @@ form.on("submit", function (event) {
                 return element1.y - element2.y;
             });
     
-            let perimeter = calculateTotalDistance(lines);
+            let perimeter = calculateTotalDistance(getDrawingPoints(getPolesTrees(treesJsonArray)['all']));
             d3.select('#perimeter').text('Minimum possible fence: ' + perimeter);
             draw(trees, lines, tree_type, fence_type, lowerLines);
         }
