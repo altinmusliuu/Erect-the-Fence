@@ -12,10 +12,8 @@ function drawPineTreesAfterLines(trees, linesLength, fence_type, newLines) {
         d3.select('#field_id').selectAll('[tree="tree_rect"]').remove();
         d3.select('#field_id').selectAll('[tree="tree_polygon"]').remove();
         drawTrunkOfTrees(trees);
-        drawPineTrees(trees);
         drawLines(newLines, fence_type, true);
 
-        d3.select('#field_id').selectAll('[tree="tree_polygon"]').remove();
         drawPineTrees(trees);
     },
         linesLength * 500

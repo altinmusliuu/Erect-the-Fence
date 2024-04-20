@@ -34,15 +34,15 @@ form.on("submit", function (event) {
             let lines = getLinesDrawingPoints(treesJsonArray);
             let trees = getDrawingPoints(treesJsonArray);
     
-            let lowerLines = getLinesDrawingPoints(getPolesTrees(treesJsonArray)['lower']);
+            let lowerLines = getLinesDrawingPoints(getOuterTrees(treesJsonArray)['lower']);
     
             trees.sort((element1, element2) => {
                 if (element1.y === element2.y) return element1.x - element2.x;
                 return element1.y - element2.y;
             });
     
-            let perimeter = calculateTotalDistance(getDrawingPoints(getPolesTrees(treesJsonArray)['all']));
-            d3.select('#perimeter').text('Minimum possible fence: ' + perimeter);
+            let fenceLength = calculateFenceLength(getDrawingPoints(getOuterTrees(treesJsonArray)['all']));
+            d3.select('#perimeter').text('Minimum possible fence: ' + fenceLength);
             draw(trees, lines, tree_type, fence_type, lowerLines);
         }
     }

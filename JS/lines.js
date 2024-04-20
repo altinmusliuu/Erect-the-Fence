@@ -46,16 +46,18 @@ function drawLines(lines, type, redraw) {
 
 function getLinesDrawingPoints(treejsonarray) {
     let array = [];
-    data = getPolesTrees(treejsonarray)['all'];
-    data.forEach((element) => {
+    let allElements = getOuterTrees(treejsonarray)['all'];
+    let data = getOuterTrees(treejsonarray);
+    allElements.forEach((element) => {
 
         x = startPointX + (element.x * pixelScale);
         y = startPointY - (element.y * pixelScale);
+        
 
-        let lowerLeft = getPolesTrees(treejsonarray)['lower_left'];
-        let lowerRight = getPolesTrees(treejsonarray)['lower_right'];
-        let upperLeft = getPolesTrees(treejsonarray)['upper_left'];
-        let upperRight = getPolesTrees(treejsonarray)['upper_right'];
+        let lowerLeft = data['lower_left'];
+        let lowerRight = data['lower_right'];
+        let upperLeft = data['upper_left'];
+        let upperRight = data['upper_right'];
 
         if (lowerLeft.includes(element)) {
             x = x - 10;

@@ -4,11 +4,7 @@ function drawApplesTreesAfterLines(trees, linesLength, fence_type, newLines) {
         d3.select('#field_id').selectAll('[tree="tree_circle"]').remove();
         d3.select('#field_id').selectAll('[tree="tree_apple"]').remove();
         drawTrunkOfTrees(trees);
-        drawApplesTrees(trees);
         drawLines(newLines, fence_type, true);
-
-        d3.select('#field_id').selectAll('[tree="tree_circle"]').remove();
-        d3.select('#field_id').selectAll('[tree="tree_apple"]').remove();
         drawApplesTrees(trees);
     },
         linesLength * 500

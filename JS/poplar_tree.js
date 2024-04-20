@@ -32,10 +32,7 @@ function drawPoplarTreesAfterLines(trees, linesLength, fence_type, newLines) {
         d3.select('#field_id').selectAll('[tree="tree_rect"]').remove();
         d3.select('#field_id').selectAll('[tree="tree_ellipse"]').remove();
         drawTrunkOfTrees(trees);
-        drawPoplarTrees(trees);
         drawLines(newLines, fence_type, true);
-
-        d3.select('#field_id').selectAll('[tree="tree_ellipse"]').remove();
         drawPoplarTrees(trees);
     },
         linesLength * 500

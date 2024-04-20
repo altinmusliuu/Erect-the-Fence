@@ -49,7 +49,7 @@ function getDrawingPoints(data) {
 
 
 
-function calculateTotalDistance(coordinates) {
+function calculateFenceLength(coordinates) {
     let totalDistance = 0;
     for (let i = 0; i < coordinates.length - 1; i++) {
         const point1 = coordinates[i];
