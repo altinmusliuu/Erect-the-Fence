@@ -16,9 +16,9 @@ function getOuterTrees(trees) {
         return b.x - a.x;
     });
 
-    let polar = [];
-    polar['lower'] = lower;
-    polar['upper'] = upper;
+    let outer = [];
+    outer['lower'] = lower;
+    outer['upper'] = upper;
 
     let lowerHalf = Math.floor(lower.length / 2);
     let leftLower = lower.slice(0, lowerHalf);
@@ -29,12 +29,12 @@ function getOuterTrees(trees) {
     let rightUpper = upper.slice(upperHalf);
 
 
-    polar['lower_left'] = leftLower;
-    polar['lower_right'] = rightLower;
-    polar['upper_right'] = leftUpper;
-    polar['upper_left'] = rightUpper;
-    polar['all'] = [...new Set(lower.concat(upper))];
-    return polar;
+    outer['lower_left'] = leftLower;
+    outer['lower_right'] = rightLower;
+    outer['upper_right'] = leftUpper;
+    outer['upper_left'] = rightUpper;
+    outer['all'] = [...new Set(lower.concat(upper))];
+    return outer;
 };
 
 const compare = (p1, p2, p3) => {
